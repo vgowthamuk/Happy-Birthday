@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Bujji</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="./images/birthday-cake.png">
+</head>
+<body>
+    <div class="wishes">Happy <span>Birthday</span> My <span>Love</span> 💝</div> 
+    <div class="header"> 
+        <div class="in-header left" >
+            <img src="./images/24.png" alt="24th birthday">
+            <div id="name">“If I know what love is, it is because of you.”</div> 
+        </div>
+        
+        <div class="in-header right"><img src="./images/birthday-pose.png" alt="birthday pose"></div>      
+    </div>
+    <div class="footer">
+        <div class="in-footer card">“I swear I couldn't love you more than I do right now, and yet I know I will tomorrow.”</div>
+        <!-- <div class="in-footer">
+            <img class="nice-pose" src="./images/nice-pose.png" alt="a nice pose">
+        </div> -->
+        <div class="countdown">
+            <div>
+                <p id="days">00</p>
+                <span>Days</span>
+            </div>
+            <div>
+                <p id="hours">00</p>
+                <span class="red">Hours</span>
+            </div>
+            <div>
+                <p id="minutes">00</p>
+                <span>Minutes</span>
+            </div>
+            <div>
+                <p id="seconds">00</p>
+                <span class="red">Seconds</span>
+            </div>
+        </div>
+        <img class="balloons" src="./images/balloons.png" alt="">
+    </div>
+    <script>
+        var countDownDate = new Date("Mar 31, 2023 00:00:00").getTime();
+        var countdown = () =>{
+            var now = new Date().getTime();
+            var distance = countDownDate - now ;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            while (distance < 0){
+                var d = new Date();
+                var year = d.getFullYear();
+                var month = d.getMonth();
+                var day = d.getDate();
+                var c = new Date(year + 1, month, day).getTime();
+                var e = new Date().getTime();
+                var distance = c - e ;
+                console.log(distance);
+
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
+            }
+            
+        };
+        
+        setInterval(countdown,1000)
+
+        
+        
+
+    </script>
+</body>
+</html>
